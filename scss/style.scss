@@ -1,0 +1,172 @@
+$lightGreen:#0A8754;
+$darkGreen:#004F2D;
+$darkBlue:#1b1b3a;
+$lightBlue:#6369D1;
+
+body{
+    margin:0px;
+}
+.fa-solid{
+    cursor: pointer;
+    transition:1s
+    
+}
+.fa-solid:hover{
+    color:$lightGreen;
+    transition:1s
+}
+
+.header{
+    background-color: $darkGreen;
+    margin:0px;
+    display:flex;
+    justify-content: space-between;
+    font-size: 30px;
+    color:white;
+    align-items: center;
+    position:fixed;
+    top:0%;
+    width:100%;
+    margin-bottom:20px;
+    .left{
+        padding:30px;
+        
+    }
+    .right{
+        
+        padding:30px;
+    }
+    
+}
+
+.body_grid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top:20px;
+    margin-top:90px;
+    padding-bottom:50px;
+    width:100%;
+    
+    .form-control{
+        
+        padding:3px;
+        padding-right: 300px;
+        margin-bottom:15px;
+    }
+        
+
+    .adding{
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        gap:30px;
+        font-size:30px;
+        padding:10px;
+        padding-bottom:20px;
+    }
+    .tit{
+        font-size: 60px;
+        font-weight:800;
+        color:$darkBlue;
+        padding-top:50px;
+        padding-bottom:20px;
+        text-align: center;
+    }
+    table{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-collapse: collapse;
+        padding:10px;
+        overflow-y: auto;
+        font-size:25px;
+        td, th {
+            border: 1px solid $lightGreen;
+            text-align: center;
+            padding:20px;
+            padding-left: 40px;
+            padding-right: 40px;
+            
+        }
+        tr:nth-child(even) {
+            background-color: $lightGreen;
+            border: 1px solid white;
+    
+        }
+        .blur{
+            cursor: pointer;
+        }
+          
+    }
+    
+}
+
+
+@media only screen and (max-width:800px){
+    .body_grid{
+        .form-control{
+            padding-right: 270px;
+        }
+        .tit{
+            font-size: 50px;
+            padding-top:60px;
+        }
+        table{
+            padding:10px;
+            font-size:15px;
+            td, th {
+                border: 1px solid $lightGreen;
+                text-align: center;
+                padding:15px;
+                padding-left: 20px;
+                padding-right: 20px;
+                
+            }
+            tr:nth-child(even) {
+                background-color: $lightGreen;
+                border: 1px solid white;
+        
+            }
+            
+              
+        }
+        
+    }
+}
+
+@media only screen and (max-width:430px){
+    .body_grid{
+        .form-control{
+            padding-right: 110px;
+        }
+        table{
+
+            padding:10px;
+            font-size:10px;
+            .adding{
+    
+                gap:20px;
+                font-size:10px;
+                
+            }
+            td, th {
+                border: 1px solid $lightGreen;
+                text-align: center;
+                padding:15px;
+                padding-left: 10px;
+                padding-right: 10px;
+                
+            }
+            tr:nth-child(even) {
+                background-color: $lightGreen;
+                border: 1px solid white;
+        
+            }
+            
+              
+        }
+        
+    }
+}
