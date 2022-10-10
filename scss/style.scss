@@ -28,6 +28,7 @@ body{
     top:0%;
     width:100%;
     margin-bottom:20px;
+    z-index: 1;
     .left{
         padding:30px;
         
@@ -88,13 +89,23 @@ body{
             padding:20px;
             padding-left: 40px;
             padding-right: 40px;
+            position: relative;
+            .par{
+                position: absolute;
+                font-size:12px;
+                top:2%;
+                right:5%;
+                color:$darkGreen
+            }
             
         }
+
         tr:nth-child(even) {
             background-color: $lightGreen;
             border: 1px solid white;
     
         }
+        
         .blur{
             cursor: pointer;
         }
@@ -122,6 +133,13 @@ body{
                 padding:15px;
                 padding-left: 20px;
                 padding-right: 20px;
+                .par{
+                    position: absolute;
+                    font-size:11px;
+                    top:2%;
+                    right:5%;
+                    color:$darkGreen
+                }
                 
             }
             tr:nth-child(even) {
@@ -157,6 +175,13 @@ body{
                 padding:15px;
                 padding-left: 10px;
                 padding-right: 10px;
+                .par{
+                    position: absolute;
+                    font-size:10px;
+                    top:2%;
+                    right:15%;
+                    color:$darkGreen
+                }
                 
             }
             tr:nth-child(even) {

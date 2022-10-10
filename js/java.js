@@ -2,6 +2,10 @@
  let y = 1
 
 let golf_courses =[]
+let player1_score =[]
+let player2_score =[]
+let player3_score =[]
+let player4_score =[]
 
  fetch(api_golf)
  .then(response=> response.json())
@@ -15,7 +19,7 @@ function bob(data){
 
     //section selector
     golf_courses= data
-    console.log(golf_courses)
+
     
 
     for(i= 0; i<golf_courses.length; i++){
@@ -23,23 +27,6 @@ function bob(data){
         document.querySelector(".golf"+x).textContent = golf_courses[i].name + " " + golf_courses[i].id
     }
     
-    console.log(golf_courses[0].name + " " + golf_courses[0].id)
-
-
-    //table
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
@@ -55,11 +42,12 @@ function clickFunction(){
         
         if (y>4){
             alert("You already have four players")
+            return y
         }
         
         console.log(y)
         if (adding.length > 10){
-            document.querySelector(".player"+y).textContent = adding.slice(0,8)+"...";
+            document.querySelector(".player"+y).textContent = adding.slice(0,7)+"...";
         }else{
             document.querySelector(".player"+y).textContent = adding
         }

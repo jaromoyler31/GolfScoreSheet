@@ -24,6 +24,7 @@ body {
   top: 0%;
   width: 100%;
   margin-bottom: 20px;
+  z-index: 1;
 }
 .header .left {
   padding: 30px;
@@ -79,6 +80,14 @@ body {
   padding: 20px;
   padding-left: 40px;
   padding-right: 40px;
+  position: relative;
+}
+.body_grid table td .par, .body_grid table th .par {
+  position: absolute;
+  font-size: 12px;
+  top: 2%;
+  right: 5%;
+  color: #004F2D;
 }
 .body_grid table tr:nth-child(even) {
   background-color: #0A8754;
@@ -107,6 +116,13 @@ body {
     padding-left: 20px;
     padding-right: 20px;
   }
+  .body_grid table td .par, .body_grid table th .par {
+    position: absolute;
+    font-size: 11px;
+    top: 2%;
+    right: 5%;
+    color: #004F2D;
+  }
   .body_grid table tr:nth-child(even) {
     background-color: #0A8754;
     border: 1px solid white;
@@ -130,6 +146,13 @@ body {
     padding: 15px;
     padding-left: 10px;
     padding-right: 10px;
+  }
+  .body_grid table td .par, .body_grid table th .par {
+    position: absolute;
+    font-size: 10px;
+    top: 2%;
+    right: 15%;
+    color: #004F2D;
   }
   .body_grid table tr:nth-child(even) {
     background-color: #0A8754;
