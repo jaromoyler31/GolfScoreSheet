@@ -1,5 +1,5 @@
  let api_golf = "https://golf-courses-api.herokuapp.com/courses/"
-
+ let y = 1
 
 let golf_courses =[]
 
@@ -12,19 +12,6 @@ let golf_courses =[]
 
 
 function bob(data){
-
-    
-    
-    
-    //add player
-    let adding = document.querySelector(".add").value
-
-    if(adding = ""){
-        alert("add Player Name Is Empty")
-    }else{
-        
-    }
-
 
     //section selector
     golf_courses= data
@@ -56,3 +43,27 @@ function bob(data){
 
 }
 
+function clickFunction(){
+    //add player
+    let adding = document.querySelector(".add").value
+    var isEmpty = adding.length == 0;
+    
+    if(isEmpty){
+        alert("Add Player Name Is Empty")
+    }else{
+        document.querySelector(".add").value = ""
+        
+        if (y>4){
+            alert("You already have four players")
+        }
+        
+        console.log(y)
+        if (adding.length > 10){
+            document.querySelector(".player"+y).textContent = adding.slice(0,8)+"...";
+        }else{
+            document.querySelector(".player"+y).textContent = adding
+        }
+        y =y+1
+    }
+
+}
