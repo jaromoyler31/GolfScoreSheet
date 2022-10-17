@@ -12,7 +12,11 @@ let player1_score =[]
 let player2_score =[]
 let player3_score =[]
 let player4_score =[]
-
+let player1_total = 0
+let player2_total = 0
+let player3_total = 0
+let player4_total = 0
+let bluring1 = document.querySelectorAll(".blur"+y)
 let bluring = document.querySelectorAll(".blur")
 bluring.forEach(bl =>{
     bl.style.opacity ="0.5"
@@ -49,6 +53,9 @@ function par(data){
             golf_par[i-1] =data.holes[x].teeBoxes[0].par
             x++
             q=1
+            bluring1.forEach(bl =>{
+                bl.contentEditable = true
+            })
         }
     }
     if (a ==19002){
@@ -59,6 +66,9 @@ function par(data){
             golf_par[i-1] =data.holes[x].teeBoxes[0].par
             x++
             q=1
+            bluring1.forEach(bl =>{
+                bl.contentEditable = true
+            })
         }
     }
     
@@ -70,6 +80,9 @@ function par(data){
             golf_par[i-1] =data.holes[x].teeBoxes[0].par
             x++
             q=1
+            bluring1.forEach(bl =>{
+                bl.contentEditable = true
+            })
         }
     }
     if (a == 0){
@@ -80,6 +93,10 @@ function par(data){
             golf_par[i-1] =data.holes[x].teeBoxes[0].par
             x++
             q=1
+            bluring1.forEach(bl =>{
+        
+                bl.contentEditable = true
+            })
         }
     }
     
@@ -123,15 +140,15 @@ function clickFunction(){
             
             document.querySelector(".player"+y).textContent = adding
         }
+
         nameblur.style.opacity ="1"
-        let bluring = document.querySelectorAll(".blur"+y)
-        bluring.forEach(bl =>{
+        bluring1 = document.querySelectorAll(".blur"+y)
+        bluring1.forEach(bl =>{
             bl.style.opacity ="1"
             bl.contentEditable = true
         })
 
         document.querySelector(".player"+y).contentEditable = true;
-        document.querySelector(".total").contentEditable = false;
     
         y =y+1
     }
@@ -186,31 +203,15 @@ div.forEach(div =>{
             alert("Plz Put in Whole Number!!!!!")
             
         }else{
-            let total = div.textContent - golf_par[row_number-1]
+            let total = Number(div.textContent - golf_par[row_number-1])
             div.contentEditable = false;
             if(total>= 0){
                 
                 div.textContent = "+"+total
-                if(col_number==1){
-                    player1_score[row_number-1] = total
-                }else if(col_number==2){
-                    player2_score[row_number-1] = total
-                }else if(col_number==3){
-                    player3_score[row_number-1] = total
-                }else if(col_number==4){
-                    player4_score[row_number-1] = total
-                }
+    
             }else{
                 div.textContent = total
-                if(col_number==1){
-                    player1_score[row_number-1] = total
-                }else if(col_number==2){
-                    player2_score[row_number-1] = total
-                }else if(col_number==3){
-                    player3_score[row_number-1] = total
-                }else if(col_number==4){
-                    player4_score[row_number-1] = total
-                }
+                
             }
             
             
