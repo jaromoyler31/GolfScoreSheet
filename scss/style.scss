@@ -109,6 +109,9 @@ body{
         .blur{
             cursor: pointer;
         }
+        .blur1{
+            cursor: pointer;
+        }
           
     }
     
@@ -118,7 +121,11 @@ body{
 @media only screen and (max-width:800px){
     .body_grid{
         .form-control{
-            padding-right: 270px;
+            padding-right: 180px;
+        }
+        button{
+            margin-left: 10px;
+            
         }
         .tit{
             font-size: 50px;
@@ -154,10 +161,15 @@ body{
     }
 }
 
+
 @media only screen and (max-width:430px){
     .body_grid{
         .form-control{
-            padding-right: 110px;
+            padding-right: 40px;
+        }
+        button{
+            margin-left: 10px;
+            
         }
         table{
 
@@ -194,4 +206,32 @@ body{
         }
         
     }
+}
+
+
+@media only screen and (max-width:300px){
+    .body_grid{
+        .form-control{
+            padding-right: 40px;
+        }
+        .form-group{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top:0px;
+        }
+    }
+}
+
+
+
+button{
+    color:black;
+    background-color:$lightGreen;
+    margin-left: 20px;
+    padding:4px;
+    padding-left:7px;
+    padding-right:7px;
+    border-radius: 5px;
 }

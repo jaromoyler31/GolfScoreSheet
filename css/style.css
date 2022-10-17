@@ -96,10 +96,16 @@ body {
 .body_grid table .blur {
   cursor: pointer;
 }
+.body_grid table .blur1 {
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 800px) {
   .body_grid .form-control {
-    padding-right: 270px;
+    padding-right: 180px;
+  }
+  .body_grid button {
+    margin-left: 10px;
   }
   .body_grid .tit {
     font-size: 50px;
@@ -130,7 +136,10 @@ body {
 }
 @media only screen and (max-width: 430px) {
   .body_grid .form-control {
-    padding-right: 110px;
+    padding-right: 40px;
+  }
+  .body_grid button {
+    margin-left: 10px;
   }
   .body_grid table {
     padding: 10px;
@@ -158,6 +167,27 @@ body {
     background-color: #0A8754;
     border: 1px solid white;
   }
+}
+@media only screen and (max-width: 300px) {
+  .body_grid .form-control {
+    padding-right: 40px;
+  }
+  .body_grid .form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0px;
+  }
+}
+button {
+  color: black;
+  background-color: #0A8754;
+  margin-left: 20px;
+  padding: 4px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
