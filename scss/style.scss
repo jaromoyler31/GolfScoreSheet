@@ -75,6 +75,21 @@ body{
         padding-bottom:20px;
         text-align: center;
     }
+    .tittle{
+        font-size: 40px;
+        font-weight:800;
+        color:$darkBlue;
+        padding-bottom:20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        
+        .smaller{
+            font-size: 30px;
+        }
+    }
     table{
         display: flex;
         justify-content: center;
@@ -171,6 +186,15 @@ body{
             margin-left: 10px;
             
         }
+        .tittle{
+            font-size: 30px;
+            font-weight:800;
+            gap: 10px;
+            
+            .smaller{
+                font-size: 25px;
+            }
+        }
         table{
 
             padding:10px;
@@ -221,10 +245,16 @@ body{
             flex-direction: column;
             margin-top:0px;
         }
+        .tittle{
+            font-size: 20px;
+            gap: 5px;
+            
+            .smaller{
+                font-size: 14px;
+            }
+        }
     }
 }
-
-
 
 button{
     color:black;
@@ -235,3 +265,4 @@ button{
     padding-right:7px;
     border-radius: 5px;
 }
+
