@@ -31,8 +31,17 @@
             
 
         </div>
+        <div class="league">
+            <select name="league" id="bob" class="form-control" >
+                <option value="2">Men</option>
+                <option value="3">Women</option>
+                <option value="0">Pro</option>
+                <option value="1">Champion</option>
+            </select>
+            <button onclick="setLeague()">Submit</button>
+        </div>
         <div class="form-group hide">
-            <select name="Golf" id="" class="form-control" >
+            <select name="Golf" id="e" class="form-control" >
                 <option value="0">Golf Course Selector</option>
                 <option class="golf1"></option>
                 <option class="golf2"></option>
@@ -41,12 +50,14 @@
 
             <button onclick="getInfo()">Submit</button>
         </div>
+        
+        <table class="table">
         <div class="tittle">
             <div class="tittle-text"></div>
             <i class="fa-solid fa-circle-info hide1 smaller" onclick="info_show()"></i>
             
         </div>
-        <table class="table">
+        
             <tr>
                 <th>#</th>
                 <th class="blur5 player1">Player 1</th>

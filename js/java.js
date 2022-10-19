@@ -2,14 +2,17 @@ let api_golf = "https://golf-courses-api.herokuapp.com/courses/"
 let hide = document.querySelector(".hide")
 let hide1 = document.querySelector(".hide1")
 let infoHide = document.querySelector(".info-hide")
+let leagueHide = document.querySelector(".league")
 hide.style.display ="block"
 hide1.style.display ="none"
 infoHide.style.display ="none"
-let e = document.querySelector(".form-control")
+leagueHide.style.display ="block"
+let e = document.querySelector("#e")
+let digit = document.querySelector("#bob")
 let y = 1
 let a = 0
-
-
+let league_number = 5;
+let league = false;
 let selected_golf = false;
 let golf_courses =[]
 let golf_par =[]
@@ -58,69 +61,73 @@ function par(data){
     element.forEach(el =>{
         el.textContent = "# of Hits"
     })
-
-    if (a ==11819){
+    if(league== false){
+        toastr.error("Plz Select You League", "Error")
+    }else{
+        if (a ==11819){
         
 
-        selected_golf = true
-        for(i=1; i<19;i++){
-
-            document.querySelector(".par"+i).textContent = "par " + data.holes[x].teeBoxes[0].par
-            golf_par[i-1] =data.holes[x].teeBoxes[0].par
-            x++
-            q=1
-            
-            hide.style.display ="none"
-            hide1.style.display ="block"
-
-            document.querySelector(".tittle-text").textContent = data.name
-            
+            selected_golf = true
+            for(i=1; i<19;i++){
+    
+                document.querySelector(".par"+i).textContent = "par " + data.holes[x].teeBoxes[league_number].par
+                golf_par[i-1] =data.holes[x].teeBoxes[league_number].par
+                x++
+                q=1
+                
+                hide.style.display ="none"
+                hide1.style.display ="block"
+    
+                document.querySelector(".tittle-text").textContent = data.name
+                
+            }
         }
-    }
-    if (a ==19002){
-        selected_golf = true
-        for(i=1; i<19;i++){
-            
-            document.querySelector(".par"+i).textContent = "par " + data.holes[x].teeBoxes[0].par
-            golf_par[i-1] =data.holes[x].teeBoxes[0].par
-            x++
-            q=1
-            
-            hide.style.display ="none"
-            hide1.style.display ="block"
-
-            document.querySelector(".tittle-text").textContent = data.name
-
+        if (a ==19002){
+            selected_golf = true
+            for(i=1; i<19;i++){
+                
+                document.querySelector(".par"+i).textContent = "par " + data.holes[x].teeBoxes[league_number].par
+                golf_par[i-1] =data.holes[x].teeBoxes[league_number].par
+                x++
+                q=1
+                
+                hide.style.display ="none"
+                hide1.style.display ="block"
+    
+                document.querySelector(".tittle-text").textContent = data.name
+    
+            }
+        }
+        
+        if (a ==18300){
+            selected_golf = true
+            for(i=1; i<19;i++){
+                document.querySelector(".par"+i).textContent = "par " + data.holes[x].teeBoxes[league_number].par
+                golf_par[i-1] =data.holes[x].teeBoxes[league_number].par
+                x++
+                q=1
+                
+                
+                hide.style.display ="none"
+                hide1.style.display ="block"
+    
+                document.querySelector(".tittle-text").textContent = data.name
+    
+            }
+        }
+        if (a == 0){
+            selected_golf = false
+            for(i=1; i<19;i++){
+    
+                document.querySelector(".par"+i).textContent = "par "
+                golf_par[i-1] =data.holes[x].teeBoxes[league_number].par
+                x++
+                q=1
+                
+            }
         }
     }
     
-    if (a ==18300){
-        selected_golf = true
-        for(i=1; i<19;i++){
-            document.querySelector(".par"+i).textContent = "par " + data.holes[x].teeBoxes[0].par
-            golf_par[i-1] =data.holes[x].teeBoxes[0].par
-            x++
-            q=1
-            
-            
-            hide.style.display ="none"
-            hide1.style.display ="block"
-
-            document.querySelector(".tittle-text").textContent = data.name
-
-        }
-    }
-    if (a == 0){
-        selected_golf = false
-        for(i=1; i<19;i++){
-
-            document.querySelector(".par"+i).textContent = "par "
-            golf_par[i-1] =data.holes[x].teeBoxes[0].par
-            x++
-            q=1
-            
-        }
-    }
     
     
 }
@@ -229,6 +236,10 @@ div.forEach(div =>{
         else if(Number.isInteger(Number(div.textContent)) == false){
             div.textContent = "# of Hits"
             toastr.error("Plz Put in Whole Number!!!!!", "Error")
+
+        }else if(league === false){
+            div.textContent = "# of Hits"
+            toastr.error("Plz Select You League", "Error")
         }else{
             let total = Number(div.textContent - golf_par[row_number-1])
             div.contentEditable = false;
@@ -331,24 +342,24 @@ function info(data){
     document.querySelector(".name").textContent = data.name
     document.querySelector(".number").textContent = data.phone
     document.querySelector(".place").textContent = data.country +" "+ data.city
-    document.querySelector(".hole1").textContent = "Hole 1: " + "par " + data.holes[0].teeBoxes[0].par + ", Yards: "+ data.holes[0].teeBoxes[0].yards+", Handicap: " + data.holes[0].teeBoxes[0].hcp
-    document.querySelector(".hole2").textContent = "Hole 2: " + "par " + data.holes[1].teeBoxes[0].par + ", Yards: "+ data.holes[1].teeBoxes[0].yards+", Handicap: " + data.holes[1].teeBoxes[0].hcp
-    document.querySelector(".hole3").textContent = "Hole 3: " + "par " + data.holes[2].teeBoxes[0].par + ", Yards: "+ data.holes[2].teeBoxes[0].yards+", Handicap: " + data.holes[2].teeBoxes[0].hcp
-    document.querySelector(".hole4").textContent = "Hole 4: " + "par " + data.holes[3].teeBoxes[0].par + ", Yards: "+ data.holes[3].teeBoxes[0].yards+", Handicap: " + data.holes[3].teeBoxes[0].hcp
-    document.querySelector(".hole5").textContent = "Hole 5: " + "par " + data.holes[4].teeBoxes[0].par + ", Yards: "+ data.holes[4].teeBoxes[0].yards+", Handicap: " + data.holes[4].teeBoxes[0].hcp
-    document.querySelector(".hole6").textContent = "Hole 6: " + "par " + data.holes[5].teeBoxes[0].par + ", Yards: "+ data.holes[5].teeBoxes[0].yards+", Handicap: " + data.holes[5].teeBoxes[0].hcp
-    document.querySelector(".hole7").textContent = "Hole 7: " + "par " + data.holes[6].teeBoxes[0].par + ", Yards: "+ data.holes[6].teeBoxes[0].yards+", Handicap: " + data.holes[6].teeBoxes[0].hcp
-    document.querySelector(".hole8").textContent = "Hole 8: " + "par " + data.holes[7].teeBoxes[0].par + ", Yards: "+ data.holes[7].teeBoxes[0].yards+", Handicap: " + data.holes[7].teeBoxes[0].hcp
-    document.querySelector(".hole9").textContent = "Hole 9: " + "par " + data.holes[8].teeBoxes[0].par + ", Yards: "+ data.holes[8].teeBoxes[0].yards+", Handicap: " + data.holes[8].teeBoxes[0].hcp
-    document.querySelector(".hole10").textContent = "Hole 10: " + "par " + data.holes[9].teeBoxes[0].par + ", Yards: "+ data.holes[9].teeBoxes[0].yards+", Handicap: " + data.holes[9].teeBoxes[0].hcp
-    document.querySelector(".hole11").textContent = "Hole 11: " + "par " + data.holes[10].teeBoxes[0].par + ", Yards: "+ data.holes[10].teeBoxes[0].yards+", Handicap: " + data.holes[10].teeBoxes[0].hcp
-    document.querySelector(".hole12").textContent = "Hole 12: " + "par " + data.holes[11].teeBoxes[0].par + ", Yards: "+ data.holes[11].teeBoxes[0].yards+", Handicap: " + data.holes[11].teeBoxes[0].hcp
-    document.querySelector(".hole13").textContent = "Hole 13: " + "par " + data.holes[12].teeBoxes[0].par + ", Yards: "+ data.holes[12].teeBoxes[0].yards+", Handicap: " + data.holes[12].teeBoxes[0].hcp
-    document.querySelector(".hole14").textContent = "Hole 14: " + "par " + data.holes[13].teeBoxes[0].par + ", Yards: "+ data.holes[13].teeBoxes[0].yards+", Handicap: " + data.holes[13].teeBoxes[0].hcp
-    document.querySelector(".hole15").textContent = "Hole 15: " + "par " + data.holes[14].teeBoxes[0].par + ", Yards: "+ data.holes[14].teeBoxes[0].yards+", Handicap: " + data.holes[14].teeBoxes[0].hcp
-    document.querySelector(".hole16").textContent = "Hole 16: " + "par " + data.holes[15].teeBoxes[0].par + ", Yards: "+ data.holes[15].teeBoxes[0].yards+", Handicap: " + data.holes[15].teeBoxes[0].hcp
-    document.querySelector(".hole17").textContent = "Hole 17: " + "par " + data.holes[16].teeBoxes[0].par + ", Yards: "+ data.holes[16].teeBoxes[0].yards+", Handicap: " + data.holes[16].teeBoxes[0].hcp
-    document.querySelector(".hole18").textContent = "Hole 18: " + "par " + data.holes[17].teeBoxes[0].par + ", Yards: "+ data.holes[17].teeBoxes[0].yards+", Handicap: " + data.holes[17].teeBoxes[0].hcp
+    document.querySelector(".hole1").textContent = "Hole 1: " + "par " + data.holes[0].teeBoxes[league_number].par + ", Yards: "+ data.holes[0].teeBoxes[league_number].yards+", Handicap: " + data.holes[0].teeBoxes[league_number].hcp
+    document.querySelector(".hole2").textContent = "Hole 2: " + "par " + data.holes[1].teeBoxes[league_number].par + ", Yards: "+ data.holes[1].teeBoxes[league_number].yards+", Handicap: " + data.holes[1].teeBoxes[league_number].hcp
+    document.querySelector(".hole3").textContent = "Hole 3: " + "par " + data.holes[2].teeBoxes[league_number].par + ", Yards: "+ data.holes[2].teeBoxes[league_number].yards+", Handicap: " + data.holes[2].teeBoxes[league_number].hcp
+    document.querySelector(".hole4").textContent = "Hole 4: " + "par " + data.holes[3].teeBoxes[league_number].par + ", Yards: "+ data.holes[3].teeBoxes[league_number].yards+", Handicap: " + data.holes[3].teeBoxes[league_number].hcp
+    document.querySelector(".hole5").textContent = "Hole 5: " + "par " + data.holes[4].teeBoxes[league_number].par + ", Yards: "+ data.holes[4].teeBoxes[league_number].yards+", Handicap: " + data.holes[4].teeBoxes[league_number].hcp
+    document.querySelector(".hole6").textContent = "Hole 6: " + "par " + data.holes[5].teeBoxes[league_number].par + ", Yards: "+ data.holes[5].teeBoxes[league_number].yards+", Handicap: " + data.holes[5].teeBoxes[league_number].hcp
+    document.querySelector(".hole7").textContent = "Hole 7: " + "par " + data.holes[6].teeBoxes[league_number].par + ", Yards: "+ data.holes[6].teeBoxes[league_number].yards+", Handicap: " + data.holes[6].teeBoxes[league_number].hcp
+    document.querySelector(".hole8").textContent = "Hole 8: " + "par " + data.holes[7].teeBoxes[league_number].par + ", Yards: "+ data.holes[7].teeBoxes[league_number].yards+", Handicap: " + data.holes[7].teeBoxes[league_number].hcp
+    document.querySelector(".hole9").textContent = "Hole 9: " + "par " + data.holes[8].teeBoxes[league_number].par + ", Yards: "+ data.holes[8].teeBoxes[league_number].yards+", Handicap: " + data.holes[8].teeBoxes[league_number].hcp
+    document.querySelector(".hole10").textContent = "Hole 10: " + "par " + data.holes[9].teeBoxes[league_number].par + ", Yards: "+ data.holes[9].teeBoxes[league_number].yards+", Handicap: " + data.holes[9].teeBoxes[league_number].hcp
+    document.querySelector(".hole11").textContent = "Hole 11: " + "par " + data.holes[10].teeBoxes[league_number].par + ", Yards: "+ data.holes[10].teeBoxes[league_number].yards+", Handicap: " + data.holes[10].teeBoxes[league_number].hcp
+    document.querySelector(".hole12").textContent = "Hole 12: " + "par " + data.holes[11].teeBoxes[league_number].par + ", Yards: "+ data.holes[11].teeBoxes[league_number].yards+", Handicap: " + data.holes[11].teeBoxes[league_number].hcp
+    document.querySelector(".hole13").textContent = "Hole 13: " + "par " + data.holes[12].teeBoxes[league_number].par + ", Yards: "+ data.holes[12].teeBoxes[league_number].yards+", Handicap: " + data.holes[12].teeBoxes[league_number].hcp
+    document.querySelector(".hole14").textContent = "Hole 14: " + "par " + data.holes[13].teeBoxes[league_number].par + ", Yards: "+ data.holes[13].teeBoxes[league_number].yards+", Handicap: " + data.holes[13].teeBoxes[league_number].hcp
+    document.querySelector(".hole15").textContent = "Hole 15: " + "par " + data.holes[14].teeBoxes[league_number].par + ", Yards: "+ data.holes[14].teeBoxes[league_number].yards+", Handicap: " + data.holes[14].teeBoxes[league_number].hcp
+    document.querySelector(".hole16").textContent = "Hole 16: " + "par " + data.holes[15].teeBoxes[league_number].par + ", Yards: "+ data.holes[15].teeBoxes[league_number].yards+", Handicap: " + data.holes[15].teeBoxes[league_number].hcp
+    document.querySelector(".hole17").textContent = "Hole 17: " + "par " + data.holes[16].teeBoxes[league_number].par + ", Yards: "+ data.holes[16].teeBoxes[league_number].yards+", Handicap: " + data.holes[16].teeBoxes[league_number].hcp
+    document.querySelector(".hole18").textContent = "Hole 18: " + "par " + data.holes[17].teeBoxes[league_number].par + ", Yards: "+ data.holes[17].teeBoxes[league_number].yards+", Handicap: " + data.holes[17].teeBoxes[league_number].hcp
 
 
 
@@ -356,11 +367,25 @@ function info(data){
 }
 
 function info_show(){
-    infoHide.style.display ="block"
+    if (league === false){
+        toastr.error("Plz Select You League", "Error")
+    }else{
+        infoHide.style.display ="block"
+    }
+    
     
 }
 
 function info_hide(){
     infoHide.style.display ="none"
+
+}
+
+function setLeague(){
+    league_number = digit.value
+    leagueHide.style.display ="none"
+    console.log(league_number)
+    league = true
+
 
 }
