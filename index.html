@@ -8,21 +8,21 @@
     <script src="https://kit.fontawesome.com/4d02def751.js" crossorigin="anonymous"></script>
     <script defer type="text/javascript" src="js/java.js"></script>
     <link rel="stylesheet" href="./css/style.css">
-    
-
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 </head>
 <body>
     <div class="header">
         <div class="left">
-            <a>Golf Scoring Sheet</a>
+            <a href="index.html">Golf Scoring Sheet</a>
         </div>
         <div class="right">
             <i class="fa-solid fa-bars click"></i>
             <i class="fa-solid fa-sparkles click"></i>
         </div>
     </div>
-
     <div class="body_grid">
         <div class="tit">Lets Play Some Golf</div>
         <div class="adding">
@@ -43,7 +43,8 @@
         </div>
         <div class="tittle">
             <div class="tittle-text"></div>
-            <i class="fa-solid fa-circle-info hide1 smaller"></i>
+            <i class="fa-solid fa-circle-info hide1 smaller" onclick="info_show()"></i>
+            
         </div>
         <table class="table">
             <tr>
@@ -190,8 +191,32 @@
             
         </table>
     </div>
-
-
+    <div class="pop-up-text info-hide">
+        <i class="fa-solid fa-x x " onclick="info_hide()"></i>
+        <div class="name"></div>
+        <div class="number "></div>
+        <div class="place"></div>
+        <hr>
+        <div class="hole1 hole"></div>
+        <div class="hole2 hole"></div>
+        <div class="hole3 hole"></div>
+        <div class="hole4 hole"></div>
+        <div class="hole5 hole"></div>
+        <div class="hole6 hole"></div>
+        <div class="hole7 hole"></div>
+        <div class="hole8 hole"></div>
+        <div class="hole9 hole"></div>
+        <div class="hole10 hole"></div>
+        <div class="hole11 hole"></div>
+        <div class="hole12 hole"></div>
+        <div class="hole13 hole"></div>
+        <div class="hole14 hole"></div>
+        <div class="hole15 hole"></div>
+        <div class="hole16 hole"></div>
+        <div class="hole17 hole"></div> 
+        <div class="hole18 hole"></div>
+        
+    </div>
 
 </body>
 </html>

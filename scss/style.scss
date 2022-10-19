@@ -31,6 +31,10 @@ body{
     z-index: 1;
     .left{
         padding:30px;
+       a{
+        color:white;
+        text-decoration: none;
+       }
         
     }
     .right{
@@ -132,8 +136,161 @@ body{
     
 }
 
+button{
+    color:black;
+    background-color:$lightGreen;
+    margin-left: 20px;
+    padding:4px;
+    padding-left:7px;
+    padding-right:7px;
+    border-radius: 5px;
+}
+
+.pop-up-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:35%;
+    background-color:$darkGreen;
+    padding:20px;
+    color:white;
+    border-radius: 10px;
+    overflow: auto;
+    position:fixed;
+    top:20%;
+    left:34%;
+    margin-right:-50px;
+    
+
+    .name{
+        font-size:30px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .number{
+        font-size:25px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .place{
+        font-size:25px; 
+        font-weight:800;
+        padding-bottom:2px;
+        text-align: center;
+
+    }
+    .hole{
+        font-size:17px;
+        padding:1px;
+        text-align: center;
+
+    }
+    .x{
+        position: absolute;
+        right:10px;
+        top:10px;
+    }
+}
+
+
+
+
+
+//Meadia
+
+
+
+@media only screen and (max-width:1440px){
+    .pop-up-text{
+        width:30%;
+        position:fixed;
+        top:20%;
+        left:34%;
+        margin-right:-50px;
+    } 
+
+}
+@media only screen and (max-width:936px){
+    .pop-up-text{
+        width:40%;
+        position:fixed;
+        top:20%;
+        left:27%;
+        margin-right:-50px;
+    } 
+    .name{
+        font-size:25px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .number{
+        font-size:20px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .place{
+        font-size:20px; 
+        font-weight:800;
+        padding-bottom:2px;
+        text-align: center;
+
+    }
+    .hole{
+        font-size:12px;
+        padding:1px;
+                text-align: center;
+
+    }
+}
 
 @media only screen and (max-width:800px){
+    .pop-up-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:40%;
+        background-color:$darkGreen;
+        padding:20px;
+        color:white;
+        border-radius: 10px;
+        overflow: auto;
+        position:fixed;
+        top:27%;
+        left:27%;
+        margin-right:-50px;
+        
+    
+        .name{
+            font-size:25px;
+            font-weight:800;
+            text-align: center;
+    
+        }
+        .number{
+            font-size:20px;
+            font-weight:800;
+            text-align: center;
+    
+        }
+        .place{
+            font-size:20px; 
+            font-weight:800;
+            padding-bottom:2px;
+            text-align: center;
+    
+        }
+        .hole{
+            font-size:12px;
+            padding:1px;
+        }
+    }
+    
     .body_grid{
         .form-control{
             padding-right: 180px;
@@ -176,7 +333,84 @@ body{
     }
 }
 
+@media only screen and (max-width:1440px){
+    .pop-up-text{
+        width:30%;
+        position:fixed;
+        top:20%;
+        left:34%;
+        margin-right:-50px;
+    } 
 
+}
+@media only screen and (max-width:936px){
+    .pop-up-text{
+        width:40%;
+        position:fixed;
+        top: 27%;
+        left:27%;
+        margin-right:-50px;
+    } 
+    .name{
+        font-size:25px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .number{
+        font-size:20px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .place{
+        font-size:20px; 
+        font-weight:800;
+        padding-bottom:2px;
+        text-align: center;
+
+    }
+    .hole{
+        font-size:12px;
+        padding:1px;
+                text-align: center;
+
+    }
+}
+@media only screen and (max-width:504px){
+    .pop-up-text{
+        width:60%;
+        position:fixed;
+        top:27%;
+        left:15%;
+        margin-right:-50px;
+    } 
+    .name{
+        font-size:25px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .number{
+        font-size:20px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .place{
+        font-size:20px; 
+        font-weight:800;
+        padding-bottom:2px;
+        text-align: center;
+
+    }
+    .hole{
+        font-size:12px;
+        padding:1px;
+                text-align: center;
+
+    }
+}
 @media only screen and (max-width:430px){
     .body_grid{
         .form-control{
@@ -256,13 +490,40 @@ body{
     }
 }
 
-button{
-    color:black;
-    background-color:$lightGreen;
-    margin-left: 20px;
-    padding:4px;
-    padding-left:7px;
-    padding-right:7px;
-    border-radius: 5px;
+@media only screen and (max-width:333px){
+    .pop-up-text{
+        width: 80%;
+        position:fixed;
+        top: 27%;
+        left:3.5%;
+        margin-right:-50px;
+    } 
+    .name{
+        font-size:25px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .number{
+        font-size:20px;
+        font-weight:800;
+        text-align: center;
+
+    }
+    .place{
+        font-size:20px; 
+        font-weight:800;
+        padding-bottom:2px;
+        text-align: center;
+
+    }
+    .hole{
+        font-size:12px;
+        padding:1px;
+                text-align: center;
+
+    }
 }
+
+
 

@@ -1,8 +1,10 @@
 let api_golf = "https://golf-courses-api.herokuapp.com/courses/"
 let hide = document.querySelector(".hide")
 let hide1 = document.querySelector(".hide1")
+let infoHide = document.querySelector(".info-hide")
 hide.style.display ="block"
 hide1.style.display ="none"
+infoHide.style.display ="none"
 let e = document.querySelector(".form-control")
 let y = 1
 let a = 0
@@ -21,6 +23,16 @@ let player3_total = 0
 let player4_total = 0
 let bluring1 = document.querySelectorAll(".blur"+y)
 let bluring = document.querySelectorAll(".blur")
+let images_good = ["https://giphy.com/embed/jhU0K8mYDY8OmFAxji"]
+let images_bad = ["https://giphy.com/embed/26ufdYUTT5QOIF8pq"]
+
+// let image = document.getElementById('image');
+//     setInterval(function(){
+//             let random = Math.floor(Math.random()* 4);
+//             image.src = images[random];
+//     } ,2000);
+
+
 bluring.forEach(bl =>{
     bl.style.opacity ="0.5"
 })
@@ -134,12 +146,15 @@ function clickFunction(){
     var isEmpty = adding.length == 0;
     let nameblur = document.querySelector(".player"+y)
     if(isEmpty){
-        alert("Add Player Name Is Empty")
+        toastr.error("Add Player NAme Is Empty", "Error")
+        
     }else{
         document.querySelector(".add").value = ""
         
         if (y>4){
-            alert("You already have four players")
+            toastr.error("You Already Have 4 Players", "Error")
+
+            
             return y
         }
         
@@ -158,7 +173,7 @@ function clickFunction(){
             bl.style.opacity ="1"
             bl.contentEditable = true
         })
-
+        toastr.success("Welcome " + adding , "New Player Joined")
         document.querySelector(".player"+y).contentEditable = true;
         y =y+1
     }
@@ -176,7 +191,8 @@ function getInfo(){
         .then(response=> response.json())
         .then(result =>{
             par(result.data)
-            
+            info(result.data)
+            console.log(result.data)
         })
     }
     
@@ -185,6 +201,8 @@ function getInfo(){
 
 let row_number
 let col_number
+
+
 function myFunction(x) {
     row_number =x.rowIndex;
     
@@ -204,14 +222,13 @@ div.forEach(div =>{
     div.addEventListener("blur", ()=> {
 
         if( selected_golf == false){
-            alert("Plz Select a Golf Course")
+            toastr.error("Plz Select a Golf Course", "Error")
             div.textContent = "# of Hits"
         
         }
         else if(Number.isInteger(Number(div.textContent)) == false){
             div.textContent = "# of Hits"
-            alert("Plz Put in Whole Number!!!!!")
-            
+            toastr.error("Plz Put in Whole Number!!!!!", "Error")
         }else{
             let total = Number(div.textContent - golf_par[row_number-1])
             div.contentEditable = false;
@@ -256,6 +273,9 @@ div.forEach(div =>{
 
                     }
                 }
+
+                toastr.info("We Know you Can Do Better then That", "Listen to the Computer")
+
             }else{
                 div.textContent = total
                 
@@ -296,6 +316,9 @@ div.forEach(div =>{
 
                     }
                 }
+                toastr.success("Nice Hit", "Good Job")
+
+
             }
             
             
@@ -303,3 +326,41 @@ div.forEach(div =>{
     })
 })
 
+function info(data){
+
+    document.querySelector(".name").textContent = data.name
+    document.querySelector(".number").textContent = data.phone
+    document.querySelector(".place").textContent = data.country +" "+ data.city
+    document.querySelector(".hole1").textContent = "Hole 1: " + "par " + data.holes[0].teeBoxes[0].par + ", Yards: "+ data.holes[0].teeBoxes[0].yards+", Handicap: " + data.holes[0].teeBoxes[0].hcp
+    document.querySelector(".hole2").textContent = "Hole 2: " + "par " + data.holes[1].teeBoxes[0].par + ", Yards: "+ data.holes[1].teeBoxes[0].yards+", Handicap: " + data.holes[1].teeBoxes[0].hcp
+    document.querySelector(".hole3").textContent = "Hole 3: " + "par " + data.holes[2].teeBoxes[0].par + ", Yards: "+ data.holes[2].teeBoxes[0].yards+", Handicap: " + data.holes[2].teeBoxes[0].hcp
+    document.querySelector(".hole4").textContent = "Hole 4: " + "par " + data.holes[3].teeBoxes[0].par + ", Yards: "+ data.holes[3].teeBoxes[0].yards+", Handicap: " + data.holes[3].teeBoxes[0].hcp
+    document.querySelector(".hole5").textContent = "Hole 5: " + "par " + data.holes[4].teeBoxes[0].par + ", Yards: "+ data.holes[4].teeBoxes[0].yards+", Handicap: " + data.holes[4].teeBoxes[0].hcp
+    document.querySelector(".hole6").textContent = "Hole 6: " + "par " + data.holes[5].teeBoxes[0].par + ", Yards: "+ data.holes[5].teeBoxes[0].yards+", Handicap: " + data.holes[5].teeBoxes[0].hcp
+    document.querySelector(".hole7").textContent = "Hole 7: " + "par " + data.holes[6].teeBoxes[0].par + ", Yards: "+ data.holes[6].teeBoxes[0].yards+", Handicap: " + data.holes[6].teeBoxes[0].hcp
+    document.querySelector(".hole8").textContent = "Hole 8: " + "par " + data.holes[7].teeBoxes[0].par + ", Yards: "+ data.holes[7].teeBoxes[0].yards+", Handicap: " + data.holes[7].teeBoxes[0].hcp
+    document.querySelector(".hole9").textContent = "Hole 9: " + "par " + data.holes[8].teeBoxes[0].par + ", Yards: "+ data.holes[8].teeBoxes[0].yards+", Handicap: " + data.holes[8].teeBoxes[0].hcp
+    document.querySelector(".hole10").textContent = "Hole 10: " + "par " + data.holes[9].teeBoxes[0].par + ", Yards: "+ data.holes[9].teeBoxes[0].yards+", Handicap: " + data.holes[9].teeBoxes[0].hcp
+    document.querySelector(".hole11").textContent = "Hole 11: " + "par " + data.holes[10].teeBoxes[0].par + ", Yards: "+ data.holes[10].teeBoxes[0].yards+", Handicap: " + data.holes[10].teeBoxes[0].hcp
+    document.querySelector(".hole12").textContent = "Hole 12: " + "par " + data.holes[11].teeBoxes[0].par + ", Yards: "+ data.holes[11].teeBoxes[0].yards+", Handicap: " + data.holes[11].teeBoxes[0].hcp
+    document.querySelector(".hole13").textContent = "Hole 13: " + "par " + data.holes[12].teeBoxes[0].par + ", Yards: "+ data.holes[12].teeBoxes[0].yards+", Handicap: " + data.holes[12].teeBoxes[0].hcp
+    document.querySelector(".hole14").textContent = "Hole 14: " + "par " + data.holes[13].teeBoxes[0].par + ", Yards: "+ data.holes[13].teeBoxes[0].yards+", Handicap: " + data.holes[13].teeBoxes[0].hcp
+    document.querySelector(".hole15").textContent = "Hole 15: " + "par " + data.holes[14].teeBoxes[0].par + ", Yards: "+ data.holes[14].teeBoxes[0].yards+", Handicap: " + data.holes[14].teeBoxes[0].hcp
+    document.querySelector(".hole16").textContent = "Hole 16: " + "par " + data.holes[15].teeBoxes[0].par + ", Yards: "+ data.holes[15].teeBoxes[0].yards+", Handicap: " + data.holes[15].teeBoxes[0].hcp
+    document.querySelector(".hole17").textContent = "Hole 17: " + "par " + data.holes[16].teeBoxes[0].par + ", Yards: "+ data.holes[16].teeBoxes[0].yards+", Handicap: " + data.holes[16].teeBoxes[0].hcp
+    document.querySelector(".hole18").textContent = "Hole 18: " + "par " + data.holes[17].teeBoxes[0].par + ", Yards: "+ data.holes[17].teeBoxes[0].yards+", Handicap: " + data.holes[17].teeBoxes[0].hcp
+
+
+
+
+}
+
+function info_show(){
+    infoHide.style.display ="block"
+    
+}
+
+function info_hide(){
+    infoHide.style.display ="none"
+
+}
